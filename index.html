@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support Osamu Dazai Bot</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #0f172a;
+            --card-bg: #1e293b;
+            --text-main: #f8fafc;
+            --text-muted: #94a3b8;
+            --accent: #3b82f6;
+            --accent-hover: #2563eb;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .container {
+            background-color: var(--card-bg);
+            max-width: 600px;
+            width: 100%;
+            border-radius: 16px;
+            padding: 40px 30px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            color: var(--text-main);
+        }
+
+        .header .subtitle {
+            color: var(--accent);
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-decoration: none;
+        }
+
+        .header p {
+            color: var(--text-muted);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .donation-methods {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .method-card {
+            background-color: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            text-align: left;
+            transition: transform 0.2s ease, border-color 0.2s ease;
+        }
+
+        .method-card:hover {
+            transform: translateY(-2px);
+            border-color: var(--accent);
+        }
+
+        .method-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+
+        .method-header i {
+            color: var(--accent);
+        }
+
+        .address-box {
+            background-color: #00000040;
+            padding: 12px;
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .address-text {
+            font-family: monospace;
+            color: #e2e8f0;
+            font-size: 14px;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            background-color: var(--accent);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .copy-btn:hover {
+            background-color: var(--accent-hover);
+        }
+
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            color: var(--text-muted);
+            font-size: 14px;
+        }
+
+        .footer a {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h1>Osamu Dazai</h1>
+            <a href="https://t.me/DazaiiRobot" target="_blank" class="subtitle">@DazaiiRobot</a>
+            <p>🌟 Thank you for considering a donation! 🌟<br>
+               Your support helps us cover server costs and continue providing top-tier group management services. We appreciate your generosity! ❤️</p>
+        </div>
+
+        <div class="donation-methods">
+            <!-- UPI Card -->
+            <div class="method-card">
+                <div class="method-header">
+                    <i class="fa-solid fa-mobile-screen"></i> UPI (India)
+                </div>
+                <div class="address-box">
+                    <span class="address-text" id="upi-address">tusar0925@fam</span>
+                    <button class="copy-btn" onclick="copyText('upi-address', this)">Copy</button>
+                </div>
+            </div>
+
+            <!-- USDT Card -->
+            <div class="method-card">
+                <div class="method-header">
+                    <i class="fa-brands fa-ethereum"></i> USDT (ERC20)
+                </div>
+                <div class="address-box">
+                    <span class="address-text" id="usdt-address">0xe16c387D8c45f4d846daE33924Fc23A057D97ba5</span>
+                    <button class="copy-btn" onclick="copyText('usdt-address', this)">Copy</button>
+                </div>
+            </div>
+
+            <!-- Solana Card -->
+            <div class="method-card">
+                <div class="method-header">
+                    <i class="fa-solid fa-link"></i> Solana (SOL)
+                </div>
+                <div class="address-box">
+                    <span class="address-text" id="sol-address">Dd7cUcPHoibkPy8JzvNSG4jT6zCZdnbsoPSWcqsKbBog</span>
+                    <button class="copy-btn" onclick="copyText('sol-address', this)">Copy</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Maintained by <a href="https://telegram.dog/ArcUpdates" target="_blank">Team Arc</a>
+        </div>
+    </div>
+
+    <script>
+        function copyText(elementId, buttonElement) {
+            // Get the text from the element
+            const textToCopy = document.getElementById(elementId).innerText;
+            
+            // Copy to clipboard
+            navigator.clipboard.writeText(textToCopy).then(() => {
+                // Change button text to show success
+                const originalText = buttonElement.innerText;
+                buttonElement.innerText = "Copied!";
+                buttonElement.style.backgroundColor = "#10b981"; // Success green
+                
+                // Revert button text after 2 seconds
+                setTimeout(() => {
+                    buttonElement.innerText = originalText;
+                    buttonElement.style.backgroundColor = "var(--accent)";
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+    </script>
+</body>
+</html>
